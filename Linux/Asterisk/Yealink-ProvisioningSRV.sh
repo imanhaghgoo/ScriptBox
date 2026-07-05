@@ -22,8 +22,7 @@ sudo sed -i "/$Issabel_Pattern/a $Issabel_Conditon" "$Issabel_vHost"
 sudo tee "$CONF_FILE" > /dev/null << 'EOF'
 Listen 8448
 <VirtualHost *:8448>
-    ServerName    172.22.138.60
-    ServerAlias   rst-yealink.sm.local
+    ServerAlias  yealink.prov
 
     SSLEngine on
     SSLCertificateFile /etc/pki/tls/certs/provision.crt
@@ -35,7 +34,7 @@ Listen 8448
         Options -Indexes
         AllowOverride None
         # Require all granted
-        Require ip 172.22.138.0/24 10.0.0.0/8
+        Require ip  10.0.0.0/8
     </Directory>
 
     ErrorLog /var/log/httpd/yealinkp_error.log
